@@ -22,7 +22,7 @@ apt install binwalk p7zip libplist-utils xxd coreutils
 
 # Extract information
 ```
-./bankid.sh <zip|ufdr|ngp>
+./bankid.sh <zip|ufdr|ngp> [-debug]
 ```
 
 # Examples
