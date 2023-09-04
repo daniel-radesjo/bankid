@@ -6,7 +6,7 @@ Extract BankID information from mobile forensic full file extractions
 - 7z 16.02
 - plistutil 2.2.0
 - xxd V1.10
-- base64 (cGNU oreutils) 8.32
+- base64 (GNU coreutils) 8.32
 - dd (coreutils) 8.32
 
 Install required applications on Debian
