@@ -151,7 +151,7 @@ if [[ "${1}" == *.zip || "${1}" == *.ufdr ]]; then #zip/ufdr
       getUUID "${1}" #Get UUID from *_keychain.plist
       
       #Get android_id from settings_ssaid.xml
-      SETTINGS_SSAID=$(7z l "${1}" 2>/dev/null | egrep settings_ssaid.xml$ | cut -c54-) #Find settings files in zip
+      SETTINGS_SSAID=$(7z l "${1}" 2>/dev/null | egrep settings_ssaid.xml$ | cut -c54- | sort -u) #Find settings files in zip
       if [ -n "${SETTINGS_SSAID}" ]; then #Exit if no settings file found
         TMP="$(mktemp /dev/shm/settings_ssaid.XXXXXXXX)" || exit 4
         7z e -so "${1}" "${SETTINGS_SSAID}" 2>/dev/null > ${TMP}
@@ -171,7 +171,7 @@ if [[ "${1}" == *.zip || "${1}" == *.ufdr ]]; then #zip/ufdr
     getUUID "${1}" #Get UUID from *_keychain.plist
     
     #Get android_id from settings_ssaid.xml
-    SETTINGS_SSAID=$(7z l "${1}" 2>/dev/null | egrep settings_ssaid.xml$ | cut -c54-) #Find settings files in zip
+    SETTINGS_SSAID=$(7z l "${1}" 2>/dev/null | egrep settings_ssaid.xml$ | cut -c54- | sort -u) #Find settings files in zip
     
     if [ -n "${SETTINGS_SSAID}" ]; then #Exit if no settings file found
       TMP="$(mktemp /dev/shm/settings_ssaid.XXXXXXXX)" || exit 4
